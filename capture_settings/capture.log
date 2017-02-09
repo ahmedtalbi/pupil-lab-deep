@@ -1,0 +1,15 @@
+2017-02-10 00:06:52,221 - MainProcess - [INFO] os_utils: Disabling idle sleep not supported on this OS version.
+2017-02-10 00:06:52,377 - world - [INFO] world: Application Version: 0.8.6.21
+2017-02-10 00:06:52,377 - world - [INFO] world: System Info: User: ahmed, Platform: Linux, Machine: ahmed-Lenovo-Y50-70, Release: 4.4.0-59-generic, Version: #80-Ubuntu SMP Fri Jan 6 17:47:47 UTC 2017
+2017-02-10 00:06:53,038 - world - [INFO] rospy.topics: topicmanager initialized
+2017-02-10 00:06:53,864 - world - [WARNING] uvc: Could not set Value. 'White Balance temperature'.
+2017-02-10 00:06:53,988 - world - [INFO] plugin: Loaded: Log_Display
+2017-02-10 00:06:53,988 - world - [INFO] plugin: Loaded: Monocular_Gaze_Mapper
+2017-02-10 00:06:53,989 - world - [INFO] plugin: Loaded: Fixation_Detector_3D
+2017-02-10 00:06:53,989 - world - [INFO] plugin: Loaded: Screen_Marker_Calibration
+2017-02-10 00:06:53,989 - world - [INFO] plugin: Loaded: Annotation_Capture
+2017-02-10 00:06:53,997 - world - [INFO] plugin: Loaded: UVC_Manager
+2017-02-10 00:06:53,997 - world - [INFO] plugin: Loaded: Display_Recent_Gaze
+2017-02-10 00:06:54,011 - world - [INFO] plugin: Loaded: Recorder
+2017-02-10 00:06:54,013 - world - [WARNING] world: Process started.
+2017-02-10 00:06:58,025 - world - [INFO] plugin: Loaded: ROS_Publisher
