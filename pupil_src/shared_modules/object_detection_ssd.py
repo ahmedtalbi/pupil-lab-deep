@@ -147,13 +147,6 @@ class Object_Detection_SSD(Plugin):
                     coord_center = [0.5*(coords[0]+coords[2]),0.5*(coords[1]+coords[3])]
                     coord_center = (int(coord_center[0]),int(coord_center[1]))
 
-                    print 'coords_center'
-                    print coord_center
-                    print 'ratio'
-                    print self.ratio
-                    print 'dimensions'
-                    print self.dimensions
-
                     if self.dimensions == None:
                         break
                     elif self.dimensions[0]<coord_center[0]<self.dimensions[1] and self.dimensions[2]<coord_center[1] and coord_center[1]<self.dimensions[3]:

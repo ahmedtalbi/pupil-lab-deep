@@ -174,7 +174,6 @@ class Template_Matching(Plugin):
                     self.pupil_display_list = (self.top_left[0] + w / 2, self.top_left[1] + h / 2)
 
                 bottom_right = (self.top_left[0] + w, self.top_left[1] + h)
-                print bottom_right
                 cv2.rectangle(img,self.top_left, bottom_right, 255, 2)
 
 

@@ -8,31 +8,53 @@ Our vision is to create tools for a diverse group of people interested in learni
 ## Project Website
 For an intro to the Pupil mobile eye tracking platform have a look at the [Pupil Labs Website](http://pupil-labs.com "Pupil Labs").
 
-## Getting Started
-<table>
-<tr>
-	<td align="center" width="20%"><img width="100" src="https://github.com/pupil-labs/pupil/wiki/media/icons/Pupil_Logo_wiki-01.png" /></td>
-	<td  align="center" width="20%"><img width="100" src="https://github.com/pupil-labs/pupil/wiki/media/icons/Pupil_Logo_wiki-03.png" /></td>
-	<td align="center" width="20%"><img width="100" src="https://github.com/pupil-labs/pupil/wiki/media/icons/Pupil_Logo_wiki-04.png" /></td>
-	<td align="center" width="20%"><img width="100" src="https://github.com/pupil-labs/pupil/wiki/media/icons/Pupil_Logo_wiki-05.png" /></td>
-	<td align="center" width="20%"><img width="100" src="https://github.com/pupil-labs/pupil/wiki/media/icons/Pupil_Logo_wiki-02.png" /></td>
-</tr>
-<tr>
-	<td><a href="https://github.com/pupil-labs/pupil/wiki/Getting-Pupil-Hardware">Pupil Hardware</a></td>
-	<td><a href="https://github.com/pupil-labs/pupil/wiki/Getting-Started">Getting Started</a></td>
-	<td><a href="https://github.com/pupil-labs/pupil/wiki/User-Guide">User Docs</a></td>
-	<td><a href="https://github.com/pupil-labs/pupil/wiki/Developer-Guide">Developer Docs</a></td>
-	<td><a href="https://github.com/pupil-labs/pupil/wiki/Community">Community</a></td>
-</tr>
-<tr>
-	<td valign="top">Get and setup your Pupil eye tracking hardware</td>
-	<td valign="top">Get up and running and learn the basic Pupil workflow</td>
-	<td valign="top">Learn more about Pupil Capture and Pupil Player software settings and workflows here</td>
-	<td valign="top">Want to write code? Read the developer docs here</td>
-	<td valign="top">Connect with the Pupil community. Chat with us on <a href="https://gitter.im/pupil-labs/pupil?utm_source=share-link&utm_medium=link&utm_campaign=share-link">gitter</a></td>		
-</tr>
-</table>
-
 
 ## License
 All source code written by Pupil Labs is open for use in compliance with the [GNU Lesser General Public License (LGPL v3.0)](http://www.gnu.org/licenses/lgpl-3.0.en.html). We want you to change and improve the code -- make a fork! Make sure to share your work with the community! See the wiki for more info on the [license](https://github.com/pupil-labs/pupil/wiki/License "License"). For support and custom licencing [contact us!](https://github.com/pupil-labs/pupil/wiki/Community#email "email us")
+
+## Adding a Object detection Module based on SSD.
+
+In the context of a practical course offered by the ICS chair of the University of Munich, an object detection module has been added to the pupil framework.
+
+### Citing SSD
+
+Please cite SSD in your publications if it helps your research:
+
+    @inproceedings{liu2016ssd,
+      title = {{SSD}: Single Shot MultiBox Detector},
+      author = {Liu, Wei and Anguelov, Dragomir and Erhan, Dumitru and Szegedy, Christian and Reed, Scott and Fu, Cheng-Yang and Berg, Alexander C.},
+      booktitle = {ECCV},
+      year = {2016}
+    }
+
+## Setup:
+
+These installation instructions are tested using Ubuntu 16.04 or higher running on many machines. Do not run Pupil on a VM unless you know what you are doing.
+
+1) The requirements for the installation of the pupil framework in Linux are listed in this [link](https://github.com/pupil-labs/pupil/wiki/Dependencies-Installation-Linux)
+2) Install the SSD unified framework for object detection: [SSD](https://github.com/weiliu89/caffe/tree/ssd)
+3) Add the caffe framework to the python env path: add this line to your ~/.bashrc: 
+export PYTHONPATH="${PYTHONPATH}:/home/ahmed/development/SSD/caffe/python"
+
+## Added work
+in this project we implemented three modules: 
+1) template matching module:
+
+A simple template matching application based on opencv. You can choose between 6 template matching methodes.
+In order to use this function, adjust your root folder in the template matching function(line 85) and then just enter the name of one of the templates stored in $eye-tracker_Root/templates.
+If you want to try out a new template just add it to the previously mentioned folder.
+Finally, pressing the save image button allows saving the images to the $eye-tracker_Root/SavedImages folder.
+
+2) ROS Publisher:
+
+A roscore and a rosnode publishing three topics: 
+/Frame: the frames received by the camera
+/GazePos: normalized position of the gaze, their confidence and their timestamp
+/Frame_timestamp: the timestamp of the frame (for comparison purposes with the gaze positions)
+
+3) a detection template based on SSD (Single shot detector): 
+This template is using the gaze position from the pupil headset, in order to localize objects based on their location. You can control the size of the Region of Interest (ROI) by changing the ratio. 
+You can also use the webcam instead of the pupil headset.
+Controlling the detector is done by pressing the OD button on the screen. 
+
+
