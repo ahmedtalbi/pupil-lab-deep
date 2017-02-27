@@ -58,7 +58,8 @@ A roscore and a rosnode publishing three topics:
 A detection Plugin based on SSD (Single shot multibox detector)
 This Plugin is using the gaze position from the pupil headset, in order to localize objects based on their location. You can control the size of the Region of Interest (ROI) by changing the ratio. 
 You can also use the webcam instead of the pupil headset.
-Controlling the detector is done by pressing the OD button on the screen or the detector button on the side 
-#remark: in line 203 if the detection is too slow using the headset, take this line out of the for loop. However using a suficient GPU power this shouldn't be an issue.
+Controlling the detector is done by pressing the OD button on the screen or the detector button on the side.
+
+####remark: in line 203 if the detection is too slow using the headset, take this line out of the for loop. However using a suficient GPU power this shouldn't be an issue.
 
 
