@@ -60,6 +60,6 @@ This Plugin is using the gaze position from the pupil headset, in order to local
 You can also use the webcam instead of the pupil headset.
 Controlling the detector is done by pressing the OD button on the screen or the detector button on the side.
 
-####remark: in line 203 if the detection is too slow using the headset, take this line out of the for loop. However using a suficient GPU power this shouldn't be an issue.
+(remark: In line 203 of the function $eye-tracker_Root/pupil_src/shared_module/object_detection_ssd.py, if the detection is too slow using the headset, take this line out of the for loop. However using a suficient GPU power this shouldn't be an issue.)
 
 
