@@ -28,7 +28,7 @@ import subprocess
 import threading
 from visualization_msgs.msg import Marker
 from Detection_SSD import SSD_Detector
-#from Detection_Faster_RCNN import FRCNN_Detector
+
 
 
 '''
@@ -68,7 +68,6 @@ class Object_Detection_SSD(Plugin):
         self.running = True
         self.detect = detect
         self.detector= SSD_Detector()
-        #self.detector= FRCNN_Detector()
         self.img_shape = None
         self._window = None
         self.start_time = time()
@@ -161,6 +160,7 @@ class Object_Detection_SSD(Plugin):
                 coord_center = (int(coord_center[0]),int(coord_center[1]))
                 print 'coords_center'
                 print coord_center
+                print self.dimensions
                 if self.dimensions == None:
                     break
                 elif self.dimensions[0]<coord_center[0]<self.dimensions[1] and self.dimensions[2]<coord_center[1] and coord_center[1]<self.dimensions[3]:
@@ -215,9 +215,11 @@ class Object_Detection_SSD(Plugin):
             self.img = cv2.imdecode(msg, cv2.CV_LOAD_IMAGE_COLOR)
 
             for pt in events.get('gaze_positions', []):
+                print pt
                 self.norm_coord=pt['norm_pos']
                 self.dimensions=_dim(self.ratio,self.norm_coord,frame.height,frame.width)
                 self.coord = self.detector.detect(self.img,events)
+                ''' unindent the last line if the detection is too slow, this way we only consider the last point of every event instead of all of them '''
 
     def on_click(self, pos, button, action):
         """
