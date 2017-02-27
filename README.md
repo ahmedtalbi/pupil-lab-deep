@@ -39,10 +39,10 @@ These installation instructions are tested using Ubuntu 16.04 or higher running 
 export PYTHONPATH="${PYTHONPATH}:/home/ahmed/development/SSD/caffe/python"
 
 ## Added work
-in this project we implemented three modules: this modules have been added to the framework as plugins. To call any of these plugins the user needs to call the $eye-tracker_Root/pupil_src/capture/main.py by calling them from the side bar.
+In this project we implemented three modules: these modules have been added to the framework as plugins. To call any of these plugins the user needs to call the $eye-tracker_Root/pupil_src/capture/main.py by calling them from the side bar.
 ### Template matching module:
 
-A template matching plugin based on opencv. You can choose between 6 template matching methodes.
+A template matching plugin based on OpenCV. You can choose between 6 template matching methods.
 In order to use this function, adjust your root folder in the template matching function(line 85) and then just enter the name of one of the templates stored in $eye-tracker_Root/templates.
 If you want to try out a new template just add it to the previously mentioned folder.
 Finally, pressing the save image button allows saving the images to the $eye-tracker_Root/SavedImages folder.
@@ -60,6 +60,6 @@ This Plugin is using the gaze position from the pupil headset, in order to local
 You can also use the webcam instead of the pupil headset.
 Controlling the detector is done by pressing the OD button on the screen or the detector button on the side.
 
-(remark: In line 203 of the function $eye-tracker_Root/pupil_src/shared_module/object_detection_ssd.py, if the detection is too slow using the headset, take this line out of the for loop. However using a suficient GPU power this shouldn't be an issue.)
+(remark: In line 203 of the function $eye-tracker_Root/pupil_src/shared_module/object_detection_ssd.py, if the detection is too slow using the headset, take this line out of the for loop. However using a sufficient GPU power this shouldn't be an issue.)
 
 

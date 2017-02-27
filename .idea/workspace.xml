@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="93de6f80-922e-4e41-be43-dc5f17ca92fd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/capture_settings/capture.log" afterPath="$PROJECT_DIR$/capture_settings/capture.log" />
-    </list>
+    <list default="true" id="93de6f80-922e-4e41-be43-dc5f17ca92fd" name="Default" comment="" />
     <ignored path="eye-tracker.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
