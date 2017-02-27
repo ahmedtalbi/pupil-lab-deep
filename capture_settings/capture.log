@@ -1,74 +1,14 @@
-2017-02-27 23:48:59,026 - MainProcess - [INFO] os_utils: Disabling idle sleep not supported on this OS version.
-2017-02-27 23:48:59,224 - world - [INFO] world: Application Version: heads/master
-2017-02-27 23:48:59,224 - world - [INFO] world: System Info: User: ahmed, Platform: Linux, Machine: ahmed-Lenovo-Y50-70, Release: 4.4.0-62-generic, Version: #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017
-2017-02-27 23:48:59,889 - world - [INFO] rospy.topics: topicmanager initialized
-2017-02-27 23:49:00,622 - world - [WARNING] uvc: Could not set Value. 'White Balance temperature'.
-2017-02-27 23:49:00,745 - world - [INFO] plugin: Loaded: Log_Display
-2017-02-27 23:49:00,746 - world - [INFO] plugin: Loaded: Pupil_Remote
-2017-02-27 23:49:00,747 - world - [INFO] plugin: Loaded: Dummy_Gaze_Mapper
-2017-02-27 23:49:00,747 - world - [INFO] plugin: Loaded: Fixation_Detector_3D
-2017-02-27 23:49:00,754 - world - [INFO] plugin: Loaded: UVC_Manager
-2017-02-27 23:49:00,755 - world - [INFO] plugin: Loaded: Screen_Marker_Calibration
-2017-02-27 23:49:00,755 - world - [INFO] plugin: Loaded: Display_Recent_Gaze
-2017-02-27 23:49:00,776 - world - [INFO] plugin: Loaded: Recorder
-2017-02-27 23:49:00,778 - world - [WARNING] world: Process started.
-2017-02-27 23:49:11,158 - world - [INFO] plugin: Loaded: Object_Detection_SSD
-2017-02-27 23:49:19,824 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:19,956 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:20,104 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:20,235 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:20,372 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:20,504 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:20,640 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:20,773 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:20,909 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:21,044 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:21,188 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:21,324 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:21,461 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:21,599 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:21,738 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:21,873 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,010 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,142 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,280 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,413 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,550 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,682 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,819 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:22,953 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:23,096 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:23,228 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:23,370 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:23,505 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:23,643 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:23,775 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:23,913 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:24,050 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:24,193 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:24,325 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:24,463 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:24,599 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:24,738 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:24,871 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:25,003 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:25,139 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:25,274 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:32,651 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:32,790 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:32,925 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,062 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,198 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,328 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,464 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,595 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,731 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,862 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:33,998 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:34,129 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:34,266 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:34,398 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:34,534 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:34,667 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:34,808 - world - [INFO] object_detection_ssd: detected a person: 1.00
-2017-02-27 23:49:39,957 - world - [INFO] world: Process shutting down.
+2017-02-27 23:59:06,026 - MainProcess - [INFO] os_utils: Disabling idle sleep not supported on this OS version.
+2017-02-27 23:59:06,217 - world - [INFO] world: Application Version: heads/master
+2017-02-27 23:59:06,217 - world - [INFO] world: System Info: User: ahmed, Platform: Linux, Machine: ahmed-Lenovo-Y50-70, Release: 4.4.0-62-generic, Version: #83-Ubuntu SMP Wed Jan 18 14:10:15 UTC 2017
+2017-02-27 23:59:06,870 - world - [INFO] rospy.topics: topicmanager initialized
+2017-02-27 23:59:07,652 - world - [WARNING] uvc: Could not set Value. 'White Balance temperature'.
+2017-02-27 23:59:07,783 - world - [INFO] plugin: Loaded: Log_Display
+2017-02-27 23:59:07,784 - world - [INFO] plugin: Loaded: Pupil_Remote
+2017-02-27 23:59:07,784 - world - [INFO] plugin: Loaded: Dummy_Gaze_Mapper
+2017-02-27 23:59:07,784 - world - [INFO] plugin: Loaded: Fixation_Detector_3D
+2017-02-27 23:59:07,792 - world - [INFO] plugin: Loaded: UVC_Manager
+2017-02-27 23:59:07,792 - world - [INFO] plugin: Loaded: Screen_Marker_Calibration
+2017-02-27 23:59:07,792 - world - [INFO] plugin: Loaded: Display_Recent_Gaze
+2017-02-27 23:59:07,809 - world - [INFO] plugin: Loaded: Recorder
+2017-02-27 23:59:07,812 - world - [WARNING] world: Process started.
