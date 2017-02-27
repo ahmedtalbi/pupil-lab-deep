@@ -53,7 +53,7 @@ class ROS_Publisher(Plugin):
     # you can change this in __init__ for your instance or in the class definition
     order = .5
 
-    def __init__(self, g_pool, publish=False, roscore=False):
+    def __init__(self, g_pool, publish=False, roscore=True):
         super(ROS_Publisher, self).__init__(g_pool)
         self._alive = True
         self.g_pool = g_pool
@@ -81,21 +81,24 @@ class ROS_Publisher(Plugin):
         self.frame_count = 0
         self.roscore = roscore
         self.rosbag = None
+        self.roscore_process = None
+        self.killed = False
 
 
         '''if self.bag_file:
             self.rosbag = subprocess.Popen('rosbag record -a', stdin=subprocess.PIPE, shell=True, cwd='/home/ahmed/Desktop/TestBag/')'''
 
-        if self.publish:
-            self.roscore = subprocess.Popen('roscore')
-
+        if self.roscore:
+            self.roscore_process = subprocess.Popen('roscore')
+            self.killed=False
+            print 'roscore launched'
 
     def init_gui(self):
         '''
         needs to be implemented as optional
         if the app allows a gui, you may initalize your part of it here.
         '''
-        self.menu = ui.Growing_Menu('Image Manipulation')
+        self.menu = ui.Growing_Menu('ROS Publisher')
         self.g_pool.sidebar.append(self.menu)
 
         self.button = ui.Thumb('running', self, label='K', hotkey='k')
@@ -144,17 +147,25 @@ class ROS_Publisher(Plugin):
 
         rate = rospy.Rate(100)  # 10hz
         if self.publish:
-            for pt in events.get('gaze_positions', []):
+            if events.get('gaze_positions', []) == []:
                 msg = np.asarray(memoryview(np.asarray(frame.jpeg_buffer)))
                 cv2.CV_LOAD_IMAGE_COLOR = 1
                 img2 = np.asarray(cv2.imdecode(msg, cv2.CV_LOAD_IMAGE_COLOR))
-                rospy.loginfo('GazePos')
-                pt2 = np.array([pt['norm_pos'][0],pt['norm_pos'][1], pt['confidence'], pt['timestamp']], dtype=np.float32)
-                pub_gaze.publish(pt2)
                 msg_frame = CvBridge().cv2_to_imgmsg(img2, "bgr8")
                 pub_frame.publish(msg_frame)
-                pub_time_frame.publish(frame.timestamp)
                 rate.sleep()
+            else:
+                for pt in events.get('gaze_positions', []):
+                    msg = np.asarray(memoryview(np.asarray(frame.jpeg_buffer)))
+                    cv2.CV_LOAD_IMAGE_COLOR = 1
+                    img2 = np.asarray(cv2.imdecode(msg, cv2.CV_LOAD_IMAGE_COLOR))
+                    rospy.loginfo('GazePos')
+                    pt2 = np.array([pt['norm_pos'][0],pt['norm_pos'][1], pt['confidence'], pt['timestamp']], dtype=np.float32)
+                    pub_gaze.publish(pt2)
+                    msg_frame = CvBridge().cv2_to_imgmsg(img2, "bgr8")
+                    pub_frame.publish(msg_frame)
+                    pub_time_frame.publish(frame.timestamp)
+                    rate.sleep()
 
     def update(self, frame, events, thr=0.5):
         self.img_shape = frame.height, frame.width, 3
@@ -163,9 +174,13 @@ class ROS_Publisher(Plugin):
 
             if not self.roscore:
                 try:
-                    self.roscore.send_signal(subprocess.signal.SIGINT)
+                    self.roscore_process.send_signal(subprocess.signal.SIGINT)
+                    self.killed = True
                 except AttributeError:
                     pass
+            if self.roscore and self.killed:
+                self.roscore_process = subprocess.Popen('roscore')
+                self.killed=False
 
             if self.publish:
                 try:
@@ -218,7 +233,11 @@ class ROS_Publisher(Plugin):
         This happens either voluntarily or forced.
         if you have an gui or glfw window destroy it here.
         """
-        pass
+        self.roscore_process = subprocess.Popen('roscore')
+        self.notify_all({'subject':'ros_publisher.stopped'})
+        if self.menu:
+            self.g_pool.sidebar.remove(self.menu)
+            self.menu = None
 
     ###do not change methods,properties below this line in your derived class
 

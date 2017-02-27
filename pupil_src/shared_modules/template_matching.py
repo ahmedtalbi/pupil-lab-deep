@@ -56,7 +56,7 @@ class Template_Matching(Plugin):
     # you can change this in __init__ for your instance or in the class definition
     order = .5
 
-    def __init__(self, g_pool, save_image=False, template_path='Please adjust your Pupil root folder and enter a valid file name',
+    def __init__(self, g_pool, save_image=False, template_path='Image name',
                  template_method='cv2.TM_SQDIFF', mode='Static Template'):
         super(Template_Matching, self).__init__(g_pool)
         self._alive = True
@@ -82,7 +82,7 @@ class Template_Matching(Plugin):
         self.data = {'pupil_positions': [], 'gaze_positions': [], 'notifications': []}
         self.frame_count = 0
         self.save_image = save_image
-        self.Pupil_Rfolder = '/home/ahmed/development/pupil/'
+        self.Pupil_Rfolder = '/home/ahmed/eye-tracker/'
 
     def init_gui(self):
         '''
@@ -98,28 +98,28 @@ class Template_Matching(Plugin):
         def close():
             self.alive = False
 
-        def set_template(new_path='tasse.jpg'):
-            path=self.Pupil_Rfolder + 'templates/' + new_path
+        def set_template(new_path='tasse'):
+            path=self.Pupil_Rfolder + 'templates/' + new_path + '.jpg'
             self.template_image = cv2.imread(path, 0)
             if self.template_image == None:
-                self.template_path = 'Please adjust your Pupil root folder and enter a valid file name'
+                self.template_path = 'Image Name'
             else:
-                self.template_path = path
+                self.template_path = new_path
 
         self.menu.elements[:] = []
         self.menu.append(ui.Button('Close', close))
         self.menu.append(ui.Info_Text(
             'This plugin detects objects using a template matching method.'
             'You can also change the detection method by clicking the *template Method*'
-            'Please adjust your Pupil Folder path and put the templates you want to match to in pupil/templates/'))
+            'Please adjust your Pupil Folder path and put the templates you want to match to in $Root_Folder/templates/'))
         # self.menu.append(ui.Switch('robust_detection',self,label='Robust detection'))
         # self.menu.append(ui.Switch('invert_image',self,label='Use inverted markers'))
         self.menu.append(ui.Switch('save_image', self, label='Save Image'))
         self.menu.append(ui.Selector('template_method', self, label='Template Methode',
                                      selection=['cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR',
                                                 'cv2.TM_CCORR_NORMED', 'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']))
-        self.menu.append(ui.Selector('mode', self, label='Mode', selection=['Static Template', 'Dynamic Template']))
-        self.menu.append(ui.Text_Input('template_path', self, setter=set_template, label='Template Image Path'))
+        self.menu.append(ui.Selector('mode', self, label='Mode', selection=['Static Template']))
+        self.menu.append(ui.Text_Input('template_path', self, setter=set_template, label='Template Image Name'))
 
     def gl_display(self):
         """
@@ -134,8 +134,8 @@ class Template_Matching(Plugin):
                           color=RGBA(.5, .3, .6, .5), thickness=3)
 
     def get_init_dict(self):
-        return {'mode': self.mode, 'ratio': self.ratio, 'template_method': self.template_method,
-                'template_image': self.template, 'save_image': self.save_image, 'publish': self.publish, 'bag_file':self.bag_file}
+        return {'mode': self.mode, 'template_method': self.template_method,
+                'template_image': self.template, 'save_image': self.save_image}
 
     def get_rec_time_str(self):
         rec_time = gmtime(time() - self.start_time)
@@ -148,8 +148,10 @@ class Template_Matching(Plugin):
             msg = np.asarray(memoryview(np.asarray(frame.jpeg_buffer)))
             cv2.CV_LOAD_IMAGE_COLOR = 1;
             img = cv2.imdecode(msg, 0)
+
             if self.save_image:
-                cv2.imwrite(self.Pupil_Rfolder+"SavedImages/frameNewCV"+str(self.frame_count)+".jpg", img)
+                imTosave = cv2.imdecode(msg, cv2.CV_LOAD_IMAGE_COLOR)
+                cv2.imwrite(self.Pupil_Rfolder+"SavedImages/frameNewCV"+str(self.frame_count)+".jpg", imTosave)
                 self.save_image = False
                 self.frame_count+=1
             img2 = img.copy()
