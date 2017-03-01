@@ -197,11 +197,12 @@ class Object_Detection_SSD(Plugin):
                 self.dimensions= _dim(self.ratio,[0.5, 0.5],frame.height,frame.width)
             else:
                 for pt in events.get('gaze_positions', []):
-                    print pt
+
                     self.norm_coord=pt['norm_pos']
                     self.dimensions=_dim(self.ratio,self.norm_coord,frame.height,frame.width)
-                    self.coord = self.detector.detect(self.img,events)
-                    ''' unindent the last line if the detection is too slow, this way we only consider the last point of every event instead of all of them '''
+                self.coord = self.detector.detect(self.img,events)
+
+                ''' The last line should be inside the for loop. However, due to the lack of enough GPU power on my personal laptop, I only consider the last point of every event instead of all of them '''
 
     def on_click(self, pos, button, action):
         """

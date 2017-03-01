@@ -62,4 +62,8 @@ Controlling the detector is done by pressing the OD button on the screen or the 
 
 (remark: In line 203 of the function $eye-tracker_Root/pupil_src/shared_module/object_detection_ssd.py, if the detection is too slow using the headset, take this line out of the for loop. However using a sufficient GPU power this shouldn't be an issue.)
 
+## Starting pupil:
+
+The first step is to calibrate your pupil device. Using the 2d Method in detection and mapping is more robust and allows a better localization of the gaze position (in the General tab on the left side of the screen). The Second step is to load the Plugin you want to test and adjust its parameters.
+
 
